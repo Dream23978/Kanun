@@ -17,28 +17,13 @@ export default function ImpactSection() {
 
       {/* Kartu impact utama */}
       <div className="impact-card">
-        {/* Logo Pertamina (teks pengganti) */}
+        {/* Logo Pertamina */}
         <div className="impact-logo">
-          <div
-            style={{
-              width: 60,
-              height: 60,
-              background: "#003d79",
-              borderRadius: 8,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "#fff",
-              fontWeight: 700,
-              fontSize: 10,
-              textAlign: "center",
-              lineHeight: 1.2,
-            }}
-          >
-            PERTA
-            <br />
-            MINA
-          </div>
+          <img
+            src="/images/Logo pertamina.png"
+            alt="Logo Pertamina"
+            style={{ width: "60px", height: "auto", objectFit: "contain" }}
+          />
         </div>
 
         {/* Konten teks */}

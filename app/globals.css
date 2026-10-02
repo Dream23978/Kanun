@@ -757,6 +757,10 @@ body {
 
 /* --- Section Pertamina Impact --- */
 .impact-section {
+   background-image: url("/images/Background.png");
+   background-size: auto;
+  background-repeat: repeat;
+  background-position: center;
   padding: 80px 60px;
 }
 
@@ -804,7 +808,7 @@ body {
   font-family: var(--font-inter), sans-serif;
   font-size: 14px;
   line-height: 22px;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--brand-forest);
   max-width: 520px;
 }
 
@@ -824,7 +828,11 @@ body {
 /* --- Section Tim / Orang-Orang --- */
 .team-section {
   padding: 80px 60px;
-  background-color: var(--brand-forest);
+  background-color: var(--brand-gold);
+  background-image: url("/images/Background.png");
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: center;
   color: var(--text-inverse);
 }
 
@@ -834,7 +842,7 @@ body {
   font-weight: 400;
   line-height: 44px;
   margin-bottom: 40px;
-  color: var(--text-inverse);
+  color: var(--brand-forest);
 }
 
 .team-grid {

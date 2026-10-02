@@ -57,11 +57,8 @@ export default function DestinasiSection() {
       <div className="destinasi-grid">
         {destinations.map((dest, i) => (
           <div className="destinasi-card" key={i}>
-            {/* Gambar destinasi + badge kategori */}
+            {/* Gambar destinasi */}
             <div className="destinasi-card-img">
-              <span className={`destinasi-card-badge badge ${dest.badgeClass}`}>
-                {dest.category}
-              </span>
               <Image
                 src={dest.image}
                 alt={dest.title}

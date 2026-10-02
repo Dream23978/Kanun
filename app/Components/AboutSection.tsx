@@ -17,15 +17,12 @@ export default function AboutSection() {
         {/* Kolom kiri: gambar Tugu dengan caption */}
         <div className="about-image-wrapper">
           <Image
-            src="/images/tugu-about.png"
+            src="/images/HistoricalImage.png  "
             alt="Tugu Khatulistiwa"
             fill
             style={{ objectFit: "cover" }}
           />
           <div className="about-image-caption">
-            <span className="badge badge-destinasi" style={{ marginBottom: "8px" }}>
-              DESTINASI
-            </span>
             <h4>Tugu Khatulistiwa</h4>
             <p>
               Ikon garis ekuator yang menjadi simbol sejarah dan kebanggaan

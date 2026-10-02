@@ -13,6 +13,12 @@ export default function Footer() {
           <div className="footer-brand-logo">
             <div className="footer-brand-icon">K</div>
             <span className="footer-brand-name">Kanun 5.0</span>
+            <span style={{ color: "#FFF9E8", margin: "0 8px" }}>|</span>
+            <img
+              src="/images/Logo pertamina.png"
+              alt="Logo Pertamina"
+              style={{ height: "64px", width: "auto", objectFit: "contain" }}
+            />
           </div>
           <p>
             Platform panduan wisata terpercaya, merangkum keindahan alam, budaya,

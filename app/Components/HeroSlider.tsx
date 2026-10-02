@@ -11,19 +11,19 @@ import { useState, useEffect, useCallback } from "react";
 // Data slide hero carousel
 const heroSlides = [
   {
-    image: "/images/slider.png",
+    image: "/images/utara.jpeg",
     label: "Kecamatan Pontianak Utara",
     title: "Menjelajah Serpihan Surga di Garis Ekuator",
     desc: "Temukan kekayaan warisan budaya, situs bersejarah dunia, dan keramahan masyarakat tepi Sungai Kapuas yang melegenda.",
   },
   {
-    image: "/images/dest-tugu-khatulistiwa.png",
+    image: "/images/slider.png",
     label: "Tugu Khatulistiwa",
     title: "Ikon Dunia di Titik Nol Derajat Bumi",
     desc: "Berdiri megah sebagai penanda garis khatulistiwa, tugu ini menjadi simbol kebanggaan Pontianak dan warisan sejarah dunia.",
   },
   {
-    image: "/images/dest-kampung-tenun.png",
+    image: "/images/Kampung Tenun.png",
     label: "Kampung Wisata Tenun",
     title: "Kearifan Lokal dalam Setiap Helai Benang",
     desc: "Kampung Tenun (Kanun) menjaga kearifan lokal melalui motif tenun insang khas Melayu yang telah diwariskan turun-temurun.",
