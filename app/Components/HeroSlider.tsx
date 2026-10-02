@@ -52,7 +52,7 @@ export default function HeroSlider() {
   );
 
   return (
-    <section className="relative w-full h-screen min-h-[640px] overflow-hidden" id="hero">
+    <section className="relative w-full h-screen min-h-160 overflow-hidden" id="hero">
       {/* Slide gambar */}
       {heroSlides.map((slide, i) => (
         <div
@@ -64,18 +64,19 @@ export default function HeroSlider() {
             src={slide.image}
             alt={slide.title}
             fill
+            sizes="100vw"
             className="w-full h-full object-cover"
             priority={i === 0}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface-inverse/85 via-surface-inverse/40 to-black/20" />
+          <div className="absolute inset-0 bg-linear-to-t from-surface-inverse/85 via-surface-inverse/40 to-black/20" />
         </div>
       ))}
 
       {/* Teks overlay di atas slide aktif */}
-      <div className="absolute bottom-[60px] md:bottom-20 left-6 md:left-[60px] right-6 md:right-[60px] z-10 text-white animate-in" key={current}>
-        <p className="label-m tracking-[2px] text-brand-gold mb-3">{heroSlides[current].label}</p>
-        <h1 className="font-serif text-[28px] md:text-4xl lg:text-5xl font-normal leading-[56px] mb-4 max-w-[680px] text-white">{heroSlides[current].title}</h1>
-        <p className="font-sans text-base leading-[26px] max-w-[540px] text-white/90">{heroSlides[current].desc}</p>
+      <div className="absolute bottom-15 md:bottom-20 left-6 md:left-15 right-6 md:right-15 z-10 text-white animate-in" key={current}>
+        <p className="label-m tracking-widest text-brand-gold mb-3">{heroSlides[current].label}</p>
+        <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal leading-14 mb-4 max-w-2xl text-white">{heroSlides[current].title}</h1>
+        <p className="font-sans text-base leading-6.5 max-w-lg text-white/90">{heroSlides[current].desc}</p>
       </div>
 
       {/* Tombol panah kiri/kanan */}
@@ -97,12 +98,12 @@ export default function HeroSlider() {
       </div>
 
       {/* Dot indikator slide */}
-      <div className="absolute bottom-[30px] left-1/2 -translate-x-1/2 flex gap-2.5 z-10">
+      <div className="absolute bottom-7.5 left-1/2 -translate-x-1/2 flex gap-2.5 z-10">
         {heroSlides.map((_, i) => (
           <button
             key={i}
             className={`h-2.5 rounded-full border-none cursor-pointer transition-all duration-300 ${
-              i === current ? "bg-brand-gold scale-[1.3] w-6 rounded-xl" : "bg-white/40 w-2.5"
+              i === current ? "bg-brand-gold scale-130 w-6 rounded-xl" : "bg-white/40 w-2.5"
             }`}
             onClick={() => goTo(i)}
             aria-label={`Slide ${i + 1}`}
