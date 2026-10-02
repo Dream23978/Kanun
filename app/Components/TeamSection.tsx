@@ -19,20 +19,20 @@ const teamMembers = [
 
 export default function TeamSection() {
   return (
-    <section className="team-section" id="tim">
+    <section className="py-20 px-6 md:px-[60px] bg-brand-gold bg-[url('/images/Background.png')] bg-repeat bg-center text-white" id="tim">
       {/* Judul section */}
-      <h2 className="section-title">Orang-Orang di Balik Kanun 5.0</h2>
+      <h2 className="font-serif text-4xl font-normal leading-[44px] mb-10 text-brand-forest">Orang-Orang di Balik Kanun 5.0</h2>
 
       {/* Grid kartu tim */}
-      <div className="team-grid">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
         {teamMembers.map((member, i) => (
-          <div className="team-card" key={i}>
+          <div className="bg-surface border border-border-default rounded-16 overflow-hidden shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover" key={i}>
             {/* Area foto (placeholder kosong) */}
-            <div className="team-card-photo" />
+            <div className="w-full aspect-square bg-subtle" />
             {/* Nama dan role */}
-            <div className="team-card-info">
-              <h4>{member.name}</h4>
-              <p>{member.role}</p>
+            <div className="p-3.5">
+              <h4 className="font-sans text-sm font-bold text-txt-primary mb-0.5">{member.name}</h4>
+              <p className="font-sans text-xs text-txt-secondary">{member.role}</p>
             </div>
           </div>
         ))}

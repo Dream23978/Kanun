@@ -43,35 +43,35 @@ const destinations = [
 
 export default function DestinasiSection() {
   return (
-    <section className="destinasi-section diamond-pattern" id="destinasi">
+    <section className="py-20 px-6 md:px-[60px] bg-brand-gold diamond-pattern" id="destinasi">
       {/* Header: judul + deskripsi */}
-      <div className="destinasi-header">
-        <h2 className="section-title">Destinasi Pilihan Terbaik</h2>
-        <p className="section-desc">
+      <div className="flex flex-col md:flex-row justify-between items-start mb-10 gap-10">
+        <h2 className="font-serif text-4xl font-normal leading-[44px] text-brand-forest">Destinasi Pilihan Terbaik</h2>
+        <p className="body-m text-surface-inverse/85 max-w-[420px]">
           Empat pilar pesona wisata Pontianak Utara yang merangkum sejarah dunia,
           kearifan lokal kerajinan tangan, hingga petualangan alam liar.
         </p>
       </div>
 
       {/* Grid kartu destinasi */}
-      <div className="destinasi-grid">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {destinations.map((dest, i) => (
-          <div className="destinasi-card" key={i}>
+          <div className="bg-surface rounded-20 overflow-hidden border border-border-default shadow-card transition-all duration-300 flex flex-col hover:-translate-y-1 hover:shadow-card-hover group" key={i}>
             {/* Gambar destinasi */}
-            <div className="destinasi-card-img">
+            <div className="relative w-full aspect-[4/3] overflow-hidden">
               <Image
                 src={dest.image}
                 alt={dest.title}
                 width={400}
                 height={300}
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                className="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105"
               />
             </div>
             {/* Info destinasi */}
-            <div className="destinasi-card-body">
-              <h3>{dest.title}</h3>
-              <p>{dest.desc}</p>
-              <a href={dest.link}>Lihat Detail →</a>
+            <div className="p-5 flex flex-col flex-grow">
+              <h3 className="heading-h3 text-txt-primary mb-2">{dest.title}</h3>
+              <p className="body-s text-txt-secondary mb-4 flex-grow">{dest.desc}</p>
+              <a href={dest.link} className="body-s text-brand-forest no-underline font-semibold inline-flex items-center gap-1.5 transition-all duration-250 hover:gap-2.5 hover:text-brand-gold-deeper">Lihat Detail →</a>
             </div>
           </div>
         ))}
