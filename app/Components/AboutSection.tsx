@@ -18,16 +18,16 @@ export default function AboutSection() {
         </h2>
       </ScrollAnimate>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         {/* Kolom kiri: gambar Tugu dengan caption */}
         <ScrollAnimate direction="left" delay={0.15}>
-          <div className="relative rounded-20 overflow-hidden aspect-3/4 max-h-120 border border-border-default/20 shadow-card">
+          <div className="relative rounded-20 overflow-hidden aspect-4/3 max-h-120 object-center border border-border-default/20 shadow-card mx-auto">
             <Image
               src="/images/HistoricalImage.png"
               alt="Tugu Khatulistiwa"
               fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="w-full h-full object-cover"
+              sizes="(max-width: 768px) 150vw, 50vw"
+              className="relative w-full h-full object-cover mx-auto"
             />
             <div className="absolute bottom-0 left-0 right-0 p-6 bg-linear-to-t from-surface-inverse/95 to-transparent">
               <h4 className="label-m tracking-widest text-brand-gold mb-1.5">Tugu Khatulistiwa</h4>
