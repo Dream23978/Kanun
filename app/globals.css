@@ -1,155 +1,144 @@
 @import "tailwindcss";
 
 /* ============================================
-   KANUN 5.0 - OFFICIAL DESIGN SYSTEM TOKENS
+   KANUN 5.0 — Tailwind v4 Design System
+   All tokens are registered via @theme inline
+   so they can be used as tw utilities.
    ============================================ */
 
-:root {
-  /* --- Brand & Semantic Colors --- */
-  --brand-forest: #246144;
-  --brand-gold: #FFEDBB;
-  --brand-terracotta: #A64B2A;
-
-  --background-canvas: #FCFAF7;
-  --background-subtle: #F4EFEA;
-
-  --surface-default: #FFFDF7;
-  --surface-inverse: #123524;
-
-  --text-primary: #1C1A17;
-  --text-secondary: #6B726F;
-  --text-inverse: #FFFFFF;
-
-  --border-default: #E8E2DA;
-  --border-strong: #C9BDA6;
-
-  --icon-secondary: #516057;
-  --white: #FFFFFF;
-
-  /* --- Legacy Aliases for Full Compatibility --- */
-  --color-gold: var(--brand-gold);
-  --color-gold-light: #DBB06A;
-  --color-gold-dark: #B8863C;
-  --color-green-dark: var(--brand-forest);
-  --color-green-deep: #0C2418;
-  --color-green-mid: var(--brand-green);
-  --color-green-accent: #3D7A52;
-  --color-cream: var(--background-subtle);
-  --color-cream-light: var(--surface-default);
-  --color-cream-dark: var(--border-strong);
-  --color-white: var(--white);
-  --color-black: var(--text-primary);
-  --color-text: var(--text-primary);
-  --color-text-light: var(--text-secondary);
-  --color-overlay: rgba(0, 0, 0, 0.55);
-
-  --background: var(--background-canvas);
-  --foreground: var(--text-primary);
-
-  /* --- Spacing Scale (base 4) --- */
-  --space-2: 2px;
-  --space-4: 4px;
-  --space-8: 8px;
-  --space-12: 12px;
-  --space-16: 16px;
-  --space-24: 24px;
-  --space-32: 32px;
-  --space-48: 48px;
-  --space-64: 64px;
-
-  /* --- Radius Scale --- */
-  --radius-4: 4px;
-  --radius-8: 8px;
-  --radius-12: 12px;
-  --radius-16: 16px;
-  --radius-20: 20px;
-  --radius-24: 24px;
-  --radius-full: 999px;
-
-  /* --- Elevation / Shadow --- */
-  --elevation-card: 0 4px 20px rgba(28, 26, 23, 0.06);
-  --elevation-card-hover: 0 12px 32px rgba(28, 26, 23, 0.12);
-}
-
 @theme inline {
-  --color-background: var(--background-canvas);
-  --color-foreground: var(--text-primary);
+  /* --- Brand & Semantic Colors --- */
+  --color-brand-forest: #246144;
+  --color-brand-forest-hover: #2d7a55;
+  --color-brand-gold: #FFEDBB;
+  --color-brand-gold-dark: #DBB06A;
+  --color-brand-gold-deeper: #B8863C;
+  --color-brand-terracotta: #A64B2A;
+
+  --color-canvas: #FCFAF7;
+  --color-subtle: #F4EFEA;
+
+  --color-surface: #FFFDF7;
+  --color-surface-inverse: #123524;
+  --color-surface-deep: #0C2418;
+
+  --color-txt-primary: #1C1A17;
+  --color-txt-secondary: #6B726F;
+  --color-txt-inverse: #FFFFFF;
+
+  --color-border-default: #E8E2DA;
+  --color-border-strong: #C9BDA6;
+
+  --color-icon-secondary: #516057;
+
+  /* --- Background & Foreground (Next.js compat) --- */
+  --color-background: #FCFAF7;
+  --color-foreground: #1C1A17;
+
+  /* --- Font families --- */
   --font-serif: var(--font-dm-serif), "DM Serif Text", Georgia, serif;
   --font-sans: var(--font-inter), "Inter", Arial, sans-serif;
+
+  /* --- Custom Shadows / Elevation --- */
+  --shadow-card: 0 4px 20px rgba(28, 26, 23, 0.06);
+  --shadow-card-hover: 0 12px 32px rgba(28, 26, 23, 0.12);
+
+  /* --- Custom border-radius tokens --- */
+  --radius-20: 20px;
+  --radius-16: 16px;
+
+  /* --- Animations --- */
+  --animate-fade-in-up: fade-in-up 0.6s ease forwards;
 }
 
-/* --- Reset & Base --- */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* --- Keyframe for fade-in-up --- */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-html {
-  scroll-behavior: smooth;
+/* ========================
+   Base / Reset
+   ======================== */
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-canvas text-txt-primary font-sans text-sm leading-[22px] overflow-x-hidden;
+  }
 }
 
-body {
-  background-color: var(--background-canvas);
-  color: var(--text-primary);
-  font-family: var(--font-inter), "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
-  overflow-x: hidden;
-}
+/* ========================
+   Reusable Utilities via @utility
+   (used where Tailwind inline would be too verbose)
+   ======================== */
 
-/* --- Type Scale Classes --- */
-.display-xl {
-  font-family: var(--font-dm-serif), Georgia, serif;
+/* --- Typography Presets --- */
+@utility display-xl {
+  font-family: var(--font-serif);
   font-size: 42px;
   line-height: 50px;
   font-weight: 400;
 }
 
-.heading-h1 {
-  font-family: var(--font-dm-serif), Georgia, serif;
+@utility heading-h1 {
+  font-family: var(--font-serif);
   font-size: 32px;
   line-height: 40px;
   font-weight: 400;
 }
 
-.heading-h2 {
-  font-family: var(--font-dm-serif), Georgia, serif;
+@utility heading-h2 {
+  font-family: var(--font-serif);
   font-size: 24px;
   line-height: 32px;
   font-weight: 400;
 }
 
-.heading-h3 {
-  font-family: var(--font-dm-serif), Georgia, serif;
+@utility heading-h3 {
+  font-family: var(--font-serif);
   font-size: 20px;
   line-height: 28px;
   font-weight: 400;
 }
 
-.body-l {
-  font-family: var(--font-inter), sans-serif;
+@utility body-l {
+  font-family: var(--font-sans);
   font-size: 16px;
   line-height: 26px;
   font-weight: 400;
 }
 
-.body-m {
-  font-family: var(--font-inter), sans-serif;
+@utility body-m {
+  font-family: var(--font-sans);
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
 }
 
-.body-s {
-  font-family: var(--font-inter), sans-serif;
+@utility body-s {
+  font-family: var(--font-sans);
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
 }
 
-.label-m {
-  font-family: var(--font-inter), sans-serif;
+@utility label-m {
+  font-family: var(--font-sans);
   font-size: 12px;
   line-height: 16px;
   font-weight: 700;
@@ -157,68 +146,54 @@ body {
   letter-spacing: 0.05em;
 }
 
-/* --- Core Components (Buttons, Badges, Cards) --- */
-
-/* Primary Button: Forest Green background, white text, full pill */
-.btn-primary {
+/* --- Button: Primary (forest green pill) --- */
+@utility btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-8);
-  background-color: var(--brand-forest);
-  color: var(--text-inverse);
-  font-family: var(--font-inter), sans-serif;
+  gap: 8px;
+  background-color: var(--color-brand-forest);
+  color: var(--color-txt-inverse);
+  font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 600;
   line-height: 22px;
   padding: 12px 24px;
-  border-radius: var(--radius-full);
+  border-radius: 999px;
   border: none;
   cursor: pointer;
   text-decoration: none;
   transition: all 0.25s ease;
 }
 
-.btn-primary:hover {
-  background-color: var(--brand-green);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(18, 53, 36, 0.25);
-}
-
-/* Secondary Button: White/transparent surface, forest border & text */
-.btn-secondary {
+/* --- Button: Secondary (outlined pill) --- */
+@utility btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-8);
-  background-color: var(--surface-default);
-  color: var(--brand-forest);
-  font-family: var(--font-inter), sans-serif;
+  gap: 8px;
+  background-color: var(--color-surface);
+  color: var(--color-brand-forest);
+  font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 600;
   line-height: 22px;
   padding: 12px 24px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--brand-forest);
+  border-radius: 999px;
+  border: 1px solid var(--color-brand-forest);
   cursor: pointer;
   text-decoration: none;
   transition: all 0.25s ease;
 }
 
-.btn-secondary:hover {
-  background-color: var(--brand-forest);
-  color: var(--text-inverse);
-  transform: translateY(-1px);
-}
-
-/* Badges: Category pill badges */
-.badge {
+/* --- Badge Base --- */
+@utility badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 4px 12px;
-  border-radius: var(--radius-full);
-  font-family: var(--font-inter), sans-serif;
+  border-radius: 999px;
+  font-family: var(--font-sans);
   font-size: 12px;
   line-height: 16px;
   font-weight: 700;
@@ -227,43 +202,38 @@ body {
   width: fit-content;
 }
 
-.badge-sejarah {
-  background-color: var(--brand-forest);
-  color: var(--text-inverse);
+@utility badge-sejarah {
+  background-color: var(--color-brand-forest);
+  color: var(--color-txt-inverse);
 }
 
-.badge-atraksi {
-  background-color: var(--brand-gold);
-  color: var(--text-inverse);
+@utility badge-atraksi {
+  background-color: var(--color-brand-gold);
+  color: var(--color-txt-inverse);
 }
 
-.badge-kuliner {
-  background-color: var(--brand-terracotta);
-  color: var(--text-inverse);
+@utility badge-kuliner {
+  background-color: var(--color-brand-terracotta);
+  color: var(--color-txt-inverse);
 }
 
-.badge-destinasi {
-  background-color: var(--brand-forest);
-  color: var(--brand-gold);
+@utility badge-destinasi {
+  background-color: var(--color-brand-forest);
+  color: var(--color-brand-gold);
 }
 
-/* Design System Card Base */
-.card-ds {
-  background-color: var(--surface-default);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-20);
-  box-shadow: var(--elevation-card);
+/* --- Card Base --- */
+@utility card-ds {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
   overflow: hidden;
   transition: all 0.3s ease;
 }
 
-.card-ds:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--elevation-card-hover);
-}
-
-/* --- Pola Tenun Background (gambar motif tenun insang) --- */
-.batik-pattern {
+/* --- Background Patterns --- */
+@utility batik-pattern {
   background-color: #1F5A3C;
   background-image: url("/images/Background.png");
   background-size: auto;
@@ -271,865 +241,15 @@ body {
   background-blend-mode: multiply;
 }
 
-.diamond-pattern {
-  background-color: var(--background-canvas);
+@utility diamond-pattern {
+  background-color: var(--color-canvas);
   background-image: url("/images/Background.png");
   background-size: auto;
   background-repeat: repeat;
   background-position: center;
 }
 
-
-/* --- Navbar --- */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 60px;
-  background: rgba(18, 53, 36, 0.90);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(209, 155, 76, 0.25);
-  transition: background 0.3s ease;
-}
-
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-}
-
-.navbar-logo-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--brand-gold);
-  border-radius: var(--radius-8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-inter), sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--text-inverse);
-}
-
-.navbar-logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.navbar-logo-title {
-  font-family: var(--font-dm-serif), Georgia, serif;
-  font-size: 18px;
-  font-weight: 400;
-  color: var(--text-inverse);
-}
-
-.navbar-logo-subtitle {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.7);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.navbar-links {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-}
-
-.navbar-links a {
-  font-family: var(--font-inter), sans-serif;
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: color 0.25s ease;
-  position: relative;
-  padding-bottom: 4px;
-}
-
-.navbar-links a:hover,
-.navbar-links a.active {
-  color: var(--text-inverse);
-}
-
-.navbar-links a.active::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--brand-gold);
-  border-radius: 1px;
-}
-
-/* --- Hero Slider --- */
-.hero-section {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  min-height: 640px;
-  overflow: hidden;
-}
-
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  transition: opacity 0.8s ease;
-}
-
-.hero-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top,
-      rgba(18, 53, 36, 0.85) 0%,
-      rgba(18, 53, 36, 0.40) 50%,
-      rgba(0, 0, 0, 0.20) 100%);
-}
-
-.hero-content {
-  position: absolute;
-  bottom: 80px;
-  left: 60px;
-  right: 60px;
-  z-index: 10;
-  color: var(--text-inverse);
-}
-
-.hero-label {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--brand-gold);
-  margin-bottom: 12px;
-  font-weight: 700;
-}
-
-.hero-title {
-  font-family: var(--font-dm-serif), Georgia, serif;
-  font-size: 48px;
-  font-weight: 400;
-  line-height: 56px;
-  margin-bottom: 16px;
-  max-width: 680px;
-  color: var(--text-inverse);
-}
-
-.hero-desc {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 16px;
-  line-height: 26px;
-  max-width: 540px;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.hero-arrows {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 24px;
-  transform: translateY(-50%);
-  z-index: 10;
-  pointer-events: none;
-}
-
-.hero-arrow {
-  width: 48px;
-  height: 48px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: var(--radius-full);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-inverse);
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  pointer-events: auto;
-}
-
-.hero-arrow:hover {
-  background: var(--brand-gold);
-  border-color: var(--brand-gold);
-}
-
-.hero-dots {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 10;
-}
-
-.hero-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.4);
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.hero-dot.active {
-  background: var(--brand-gold);
-  transform: scale(1.3);
-  width: 24px;
-  border-radius: 12px;
-}
-
-/* --- Section Tentang / Menyusuri --- */
-.about-section {
-  padding: 80px 60px;
-  color: var(--text-inverse);
-}
-
-.about-section .section-title {
-  font-family: var(--font-dm-serif), Georgia, serif;
-  font-size: 36px;
-  font-weight: 400;
-  line-height: 44px;
-  margin-bottom: 40px;
-  max-width: 560px;
-  color: var(--text-inverse);
-}
-
-.about-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: start;
-}
-
-.about-image-wrapper {
-  position: relative;
-  border-radius: var(--radius-20);
-  overflow: hidden;
-  aspect-ratio: 3/4;
-  max-height: 480px;
-  border: 1px solid rgba(232, 226, 218, 0.2);
-  box-shadow: var(--elevation-card);
-}
-
-.about-image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.about-image-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 24px;
-  background: linear-gradient(to top, rgba(18, 53, 36, 0.95), transparent);
-}
-
-.about-image-caption h4 {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--brand-gold);
-  margin-bottom: 6px;
-  font-weight: 700;
-}
-
-.about-image-caption p {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 13px;
-  line-height: 20px;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.about-right {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.about-desc {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 15px;
-  line-height: 24px;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* Feature Cards inside About Section */
-.feature-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--radius-16);
-  padding: 20px;
-  transition: all 0.3s ease;
-}
-
-.feature-card:hover {
-  background: rgba(255, 255, 255, 0.14);
-  transform: translateX(4px);
-}
-
-.feature-icon {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  background: var(--brand-gold);
-  border-radius: var(--radius-full);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  color: var(--text-inverse);
-}
-
-.feature-card h4 {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--brand-gold);
-  margin-bottom: 4px;
-}
-
-.feature-card p {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 13px;
-  line-height: 20px;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-/* --- Section Destinasi --- */
-.destinasi-section {
-  padding: 80px 60px;
-  background-color: var(--brand-gold);
-  background-image: url("/images/Background.png");
-  background-size: auto;
-  background-repeat: repeat;
-  background-position: center;
-  background-blend-mode: multiply;
-}
-
-.destinasi-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 40px;
-  gap: 40px;
-}
-
-.destinasi-header .section-title {
-  font-family: var(--font-dm-serif), Georgia, serif;
-  font-size: 36px;
-  font-weight: 400;
-  line-height: 44px;
-  color: var(--brand-forest);
-}
-
-.destinasi-header .section-desc {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 14px;
-  line-height: 22px;
-  color: rgba(18, 53, 36, 0.85);
-  max-width: 420px;
-}
-
-.destinasi-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-
-.destinasi-card {
-  background-color: var(--surface-default);
-  border-radius: var(--radius-20);
-  overflow: hidden;
-  border: 1px solid var(--border-default);
-  box-shadow: var(--elevation-card);
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.destinasi-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--elevation-card-hover);
-}
-
-.destinasi-card-img {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4/3;
-  overflow: hidden;
-}
-
-.destinasi-card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.destinasi-card:hover .destinasi-card-img img {
-  transform: scale(1.05);
-}
-
-.destinasi-card-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 5;
-}
-
-.destinasi-card-body {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.destinasi-card-body h3 {
-  font-family: var(--font-dm-serif), Georgia, serif;
-  font-size: 20px;
-  line-height: 28px;
-  font-weight: 400;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-}
-
-.destinasi-card-body p {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 13px;
-  line-height: 20px;
-  color: var(--text-secondary);
-  margin-bottom: 16px;
-  flex-grow: 1;
-}
-
-.destinasi-card-body a {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 13px;
-  line-height: 20px;
-  color: var(--brand-forest);
-  text-decoration: none;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: gap 0.25s ease, color 0.25s ease;
-}
-
-.destinasi-card-body a:hover {
-  gap: 10px;
-  color: var(--brand-gold);
-}
-
-/* --- Section Pertamina Impact --- */
-.impact-section {
-  padding: 80px 60px;
-}
-
-.impact-section .section-title {
-  font-family: var(--font-dm-serif), Georgia, serif;
-  font-size: 36px;
-  font-weight: 400;
-  line-height: 44px;
-  margin-bottom: 40px;
-  color: var(--brand-forest);
-}
-
-.impact-section .section-title em {
-  font-style: italic;
-  color: var(--brand-gold);
-}
-
-.impact-card {
-  background-color: var(--brand-forest);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-24);
-  box-shadow: var(--elevation-card);
-  padding: 40px;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 32px;
-  align-items: center;
-}
-
-.impact-logo {
-  width: 64px;
-}
-
-.impact-body h3 {
-  font-family: var(--font-dm-serif), Georgia, serif;
-  font-size: 22px;
-  line-height: 30px;
-  font-weight: 400;
-  color: var(--text-inverse);
-  margin-bottom: 12px;
-  max-width: 520px;
-}
-
-.impact-body p {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 14px;
-  line-height: 22px;
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 520px;
-}
-
-.impact-image {
-  width: 220px;
-  border-radius: var(--radius-16);
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.impact-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* --- Section Tim / Orang-Orang --- */
-.team-section {
-  padding: 80px 60px;
-  background-color: var(--brand-forest);
-  color: var(--text-inverse);
-}
-
-.team-section .section-title {
-  font-family: var(--font-dm-serif), Georgia, serif;
-  font-size: 36px;
-  font-weight: 400;
-  line-height: 44px;
-  margin-bottom: 40px;
-  color: var(--text-inverse);
-}
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-}
-
-.team-card {
-  background-color: var(--surface-default);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-16);
-  overflow: hidden;
-  box-shadow: var(--elevation-card);
-  transition: transform 0.3s ease;
-}
-
-.team-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--elevation-card-hover);
-}
-
-.team-card-photo {
-  width: 100%;
-  aspect-ratio: 1;
-  background: var(--background-subtle);
-}
-
-.team-card-info {
-  padding: 14px;
-}
-
-.team-card-info h4 {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 2px;
-}
-
-.team-card-info p {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 12px;
-  color: var(--text-secondary);
-}
-
-/* --- Footer --- */
-.footer {
-  background-color: #0C2418;
-  color: var(--text-inverse);
-  padding: 60px 60px 0;
-}
-
-.footer-main {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 60px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.footer-brand-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.footer-brand-icon {
-  width: 32px;
-  height: 32px;
-  background: var(--brand-gold);
-  border-radius: var(--radius-8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-inter), sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--text-inverse);
-}
-
-.footer-brand-name {
-  font-family: var(--font-dm-serif), Georgia, serif;
-  font-size: 18px;
-  font-weight: 400;
-  color: var(--text-inverse);
-}
-
-.footer-brand p {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 13px;
-  line-height: 20px;
-  color: rgba(255, 255, 255, 0.65);
-  max-width: 340px;
-}
-
-.footer-nav h5 {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--brand-gold);
-  margin-bottom: 16px;
-}
-
-.footer-nav ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.footer-nav ul li a {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.footer-nav ul li a:hover {
-  color: var(--brand-gold);
-}
-
-.footer-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px 0;
-}
-
-.footer-copyright {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.footer-socials {
-  display: flex;
-  gap: 12px;
-}
-
-.footer-social-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-full);
-  background: var(--brand-gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-inter), sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--text-inverse);
-  text-decoration: none;
-  transition: all 0.25s ease;
-}
-
-.footer-social-icon:hover {
-  background: #DBB06A;
-  transform: scale(1.1);
-}
-
-.footer-location {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
-  font-style: italic;
-}
-
-/* --- Floating Buttons --- */
-.floating-btn {
-  position: fixed;
-  bottom: 24px;
-  width: 50px;
-  height: 50px;
-  border-radius: var(--radius-full);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-inter), sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  color: var(--text-inverse);
-  z-index: 90;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  border: none;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-}
-
-.floating-btn:hover {
-  transform: scale(1.1);
-}
-
-.floating-btn-left {
-  left: 24px;
-  background-color: var(--brand-forest);
-}
-
-.floating-btn-right {
-  right: 24px;
-  background-color: var(--brand-gold);
-}
-
-
-/* --- Animations --- */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-in {
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-/* --- Responsive --- */
-@media (max-width: 1024px) {
-  .destinasi-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .team-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .hero-title {
-    font-size: 36px;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    padding: 12px 20px;
-  }
-
-  .navbar-links {
-    display: none;
-  }
-
-  .hero-content {
-    bottom: 60px;
-    left: 24px;
-    right: 24px;
-  }
-
-  .hero-title {
-    font-size: 28px;
-  }
-
-  .about-section,
-  .destinasi-section,
-  .impact-section,
-  .team-section,
-  .footer {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  .about-content {
-    grid-template-columns: 1fr;
-  }
-
-  .destinasi-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .destinasi-header {
-    flex-direction: column;
-  }
-
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .impact-card {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-main {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
+/* --- Legacy animation class --- */
+@utility animate-in {
+  animation: fade-in-up 0.6s ease forwards;
 }
