@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import ScrollAnimate from "./ScrollAnimate";
 
 /* ================================================
@@ -27,7 +28,7 @@ const destinations = [
     image: "/images/makam.png",
     title: "Makam Kesultanan Batu Layang",
     desc: "Situs pemakaman bersejarah kesultanan Pontianak di tepian sungai.",
-    link: "#",
+    link: "/destinasi/makam-ziarah-batu-layang",
   },
   {
     image: "/images/bukit.png",
@@ -46,7 +47,7 @@ export default function DestinasiSection() {
           <h2 className="font-serif text-4xl font-normal leading-11 text-brand-forest">Destinasi Pilihan Terbaik</h2>
         </ScrollAnimate>
         <ScrollAnimate direction="right" delay={0.15}>
-          <p className="body-m text-[#313131] max-w-sm font-bold">
+          <p className="body-m text-txt-primary max-w-sm font-bold">
             Empat pilar pesona wisata Pontianak Utara yang merangkum sejarah dunia,
             kearifan lokal kerajinan tangan, hingga petualangan alam liar.
           </p>
@@ -72,7 +73,7 @@ export default function DestinasiSection() {
               <div className="p-5 flex flex-col grow">
                 <h3 className="heading-h3 text-txt-primary mb-2">{dest.title}</h3>
                 <p className="body-s text-txt-secondary mb-4 grow">{dest.desc}</p>
-                <a href={dest.link} className="body-s text-brand-forest no-underline font-semibold inline-flex items-center gap-1.5 transition-all duration-250 hover:gap-2.5 hover:text-brand-gold-deeper">Lihat Detail →</a>
+                <Link href={dest.link} className="body-s text-brand-forest no-underline font-semibold inline-flex items-center gap-1.5 transition-all duration-250 hover:gap-2.5 hover:text-brand-gold-deeper">Lihat Detail →</Link>
               </div>
             </div>
           </ScrollAnimate>

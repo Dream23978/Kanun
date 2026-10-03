@@ -55,8 +55,8 @@ export default function AboutSection() {
 
           {/* Card: Garis Nol Derajat */}
           <ScrollAnimate direction="right" delay={0.1}>
-            <div className="flex items-start gap-4 bg-white/[0.08] backdrop-blur-md border border-white/15 rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.14] hover:translate-x-1">
-              <div className="w-11 h-11 min-w-11 bg-[#122700] rounded-full flex items-center justify-center text-lg text-white font-bold">◎</div>
+            <div className="flex items-start gap-4 bg-white/8 backdrop-blur-md border border-white/15 rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.14] hover:translate-x-1">
+              <div className="w-11 h-11 min-w-11 bg-surface-forest-deep rounded-full flex items-center justify-center text-lg text-white font-bold">◎</div>
               <div>
                 <h4 className="font-sans text-sm/5 font-bold tracking-wider uppercase text-brand-gold mb-1">Garis Nol Derajat</h4>
                 <p className="body-s text-white/80">Tugu Khatulistiwa sebagai penanda geografis yang ikonik.</p>
@@ -66,8 +66,8 @@ export default function AboutSection() {
 
           {/* Card: Pusat Tenun Khas */}
           <ScrollAnimate direction="right" delay={0.2}>
-            <div className="flex items-start gap-4 bg-white/[0.08] backdrop-blur-md border border-white/15 rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.14] hover:translate-x-1">
-              <div className="w-11 h-11 min-w-11 bg-[#122700] rounded-full flex items-center justify-center text-lg text-white font-bold">⬡</div>
+            <div className="flex items-start gap-4 bg-white/8 backdrop-blur-md border border-white/15 rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.14] hover:translate-x-1">
+              <div className="w-11 h-11 min-w-11 bg-surface-forest-deep rounded-full flex items-center justify-center text-lg text-white font-bold">⬡</div>
               <div>
                 <h4 className="font-sans text-sm/5 font-bold tracking-wider uppercase text-brand-gold mb-1">Pusat Tenun Khas</h4>
                 <p className="body-s text-white/80">
@@ -79,8 +79,8 @@ export default function AboutSection() {
 
           {/* Card: Situs Bersejarah */}
           <ScrollAnimate direction="right" delay={0.3}>
-            <div className="flex items-start gap-4 bg-white/[0.08] backdrop-blur-md border border-white/15 rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.14] hover:translate-x-1">
-              <div className="w-11 h-11 min-w-11 bg-[#122700] rounded-full flex items-center justify-center text-lg text-white font-bold">⛩</div>
+            <div className="flex items-start gap-4 bg-white/8 backdrop-blur-md border border-white/15 rounded-2xl p-5 transition-all duration-300 hover:bg-white/[0.14] hover:translate-x-1">
+              <div className="w-11 h-11 min-w-11 bg-surface-forest-deep rounded-full flex items-center justify-center text-lg text-white font-bold">⛩</div>
               <div>
                 <h4 className="font-sans text-sm/5 font-bold tracking-wider uppercase text-brand-gold mb-1">Situs Bersejarah</h4>
                 <p className="body-s text-white/80">
