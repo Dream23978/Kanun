@@ -10,12 +10,12 @@ import ScrollAnimate from "../ScrollAnimate";
 export default function MakamKompleksSection() {
   return (
     <section className="py-16 md:py-24 px-6 md:px-15 bg-brand-gold bg-[url('/images/Background.png')] bg-repeat bg-center diamond-pattern" id="kompleks">
-      <div className="max-w-310 auto space-y-12">
+      <div className="max-w-310 mx-auto space-y-12">
         {/* Section Heading */}
         <ScrollAnimate direction="up">
           <div className="max-w-3xl mb-8">
             <h2 className="font-serif text-3xl md:text-[38px] font-normal leading-tight text-brand-forest mb-2">
-              Kompleks, Tokoh & Silsilah Makam Ziarah Batu layang
+              Kompleks, Tokoh & Silsilah Makam Ziarah Batu Layang
             </h2>
             <p className="font-sans text-xs md:text-sm font-bold text-txt-primary">
               Tata letak bangunan, bentuk mahkota, dan rupa tambak menyimpan pengetahuan tentang kedudukan, garis keturunan, serta identitas mereka yang dimakamkan.

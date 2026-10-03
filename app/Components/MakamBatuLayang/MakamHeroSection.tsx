@@ -23,7 +23,7 @@ export default function MakamHeroSection() {
       <div className="absolute inset-0 bg-linear-to-t from-black/85 via-black/30 to-black/10" />
 
       {/* Text overlay — positioned just above the info bar */}
-      <div className="absolute bottom-35bottom-[160px] left-6 md:left-15 right-6 md:right-15 z-10 text-center">
+      <div className="absolute bottom-[140px] md:bottom-[160px] left-6 md:left-15 right-6 md:right-15 z-10 text-center">
         <p className="label-m tracking-[0.25em] text-brand-gold mb-3 text-[11px]">
           MAKAM KESULTANAN PONTIANAK DI BATU LAYANG
         </p>
@@ -34,7 +34,7 @@ export default function MakamHeroSection() {
 
       {/* Info bar — flush at bottom, transparent dark bg */}
       <div className="absolute bottom-0 left-0 right-0 z-10">
-        <div className="max-w-310  auto px-6 md:px-0">
+        <div className="max-w-310 mx-auto px-6 md:px-0">
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/20">
             {/* Lokasi */}
             <div className="flex flex-col items-center text-center py-6 px-8">
