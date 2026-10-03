@@ -20,12 +20,6 @@ export default function Footer() {
                 K
               </div>
               <span className="font-serif text-lg font-normal text-white">Kanun 5.0</span>
-              <span className="text-brand-gold/70 mx-2">|</span>
-              <img
-                src="/images/Logo pertamina.png"
-                alt="Logo Pertamina"
-                className="h-16 w-auto object-contain"
-              />
             </div>
             <p className="body-s text-white/65 max-w-xs">
               Platform panduan wisata terpercaya, merangkum keindahan alam, budaya,
