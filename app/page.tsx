@@ -5,7 +5,7 @@ import DestinasiSection from "./Components/DestinasiSection";
 import ImpactSection from "./Components/ImpactSection";
 import TeamSection from "./Components/TeamSection";
 import Footer from "./Components/Footer";
-import FloatingButtons from "./Components/FloatingButtons";
+
 
 /* ================================================
    HOMEPAGE - Menyusun semua section halaman utama
@@ -34,8 +34,7 @@ export default function Home() {
       {/* Branding, navigasi, sosmed, copyright */}
       <Footer />
 
-      {/* Tombol floating K dan P di pojok bawah */}
-      <FloatingButtons />
+
     </>
   );
 }

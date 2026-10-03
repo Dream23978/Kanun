@@ -11,19 +11,19 @@ import { useState, useEffect, useCallback } from "react";
 // Data slide hero carousel
 const heroSlides = [
   {
-    image: "/images/slider.png",
+    image: "/images/utara.jpeg",
     label: "Kecamatan Pontianak Utara",
     title: "Menjelajah Serpihan Surga di Garis Ekuator",
     desc: "Temukan kekayaan warisan budaya, situs bersejarah dunia, dan keramahan masyarakat tepi Sungai Kapuas yang melegenda.",
   },
   {
-    image: "/images/dest-tugu-khatulistiwa.png",
+    image: "/images/slider.png",
     label: "Tugu Khatulistiwa",
     title: "Ikon Dunia di Titik Nol Derajat Bumi",
     desc: "Berdiri megah sebagai penanda garis khatulistiwa, tugu ini menjadi simbol kebanggaan Pontianak dan warisan sejarah dunia.",
   },
   {
-    image: "/images/dest-kampung-tenun.png",
+    image: "/images/Kampung Tenun.png",
     label: "Kampung Wisata Tenun",
     title: "Kearifan Lokal dalam Setiap Helai Benang",
     desc: "Kampung Tenun (Kanun) menjaga kearifan lokal melalui motif tenun insang khas Melayu yang telah diwariskan turun-temurun.",
@@ -52,48 +52,59 @@ export default function HeroSlider() {
   );
 
   return (
-    <section className="hero-section" id="hero">
+    <section className="relative w-full h-screen min-h-160 overflow-hidden" id="hero">
       {/* Slide gambar */}
       {heroSlides.map((slide, i) => (
         <div
           key={i}
-          className="hero-slide"
+          className="absolute inset-0 transition-opacity duration-800 ease-in-out"
           style={{ opacity: i === current ? 1 : 0 }}
         >
           <Image
             src={slide.image}
             alt={slide.title}
             fill
-            style={{ objectFit: "cover" }}
+            sizes="100vw"
+            className="w-full h-full object-cover"
             priority={i === 0}
           />
-          <div className="hero-overlay" />
+          <div className="absolute inset-0 bg-linear-to-t from-surface-inverse/85 via-surface-inverse/40 to-black/20" />
         </div>
       ))}
 
       {/* Teks overlay di atas slide aktif */}
-      <div className="hero-content animate-in" key={current}>
-        <p className="hero-label">{heroSlides[current].label}</p>
-        <h1 className="hero-title">{heroSlides[current].title}</h1>
-        <p className="hero-desc">{heroSlides[current].desc}</p>
+      <div className="absolute bottom-15 md:bottom-20 left-6 md:left-15 right-6 md:right-15 z-10 text-white animate-in" key={current}>
+        <p className="label-m tracking-widest text-brand-gold mb-3">{heroSlides[current].label}</p>
+        <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal leading-14 mb-4 max-w-2xl text-white">{heroSlides[current].title}</h1>
+        <p className="font-sans text-base leading-6.5 max-w-lg text-white/90">{heroSlides[current].desc}</p>
       </div>
 
       {/* Tombol panah kiri/kanan */}
-      <div className="hero-arrows">
-        <button className="hero-arrow" onClick={prev} aria-label="Slide sebelumnya">
+      <div className="absolute top-1/2 left-0 right-0 flex justify-between px-6 -translate-y-1/2 z-10 pointer-events-none">
+        <button
+          className="w-12 h-12 bg-white/15 backdrop-blur-md border border-white/25 rounded-full flex items-center justify-center text-white text-xl cursor-pointer transition-all duration-250 pointer-events-auto hover:bg-brand-gold hover:border-brand-gold hover:text-txt-primary"
+          onClick={prev}
+          aria-label="Slide sebelumnya"
+        >
           ←
         </button>
-        <button className="hero-arrow" onClick={next} aria-label="Slide berikutnya">
+        <button
+          className="w-12 h-12 bg-white/15 backdrop-blur-md border border-white/25 rounded-full flex items-center justify-center text-white text-xl cursor-pointer transition-all duration-250 pointer-events-auto hover:bg-brand-gold hover:border-brand-gold hover:text-txt-primary"
+          onClick={next}
+          aria-label="Slide berikutnya"
+        >
           →
         </button>
       </div>
 
       {/* Dot indikator slide */}
-      <div className="hero-dots">
+      <div className="absolute bottom-7.5 left-1/2 -translate-x-1/2 flex gap-2.5 z-10">
         {heroSlides.map((_, i) => (
           <button
             key={i}
-            className={`hero-dot ${i === current ? "active" : ""}`}
+            className={`h-2.5 rounded-full border-none cursor-pointer transition-all duration-300 ${
+              i === current ? "bg-brand-gold scale-130 w-6 rounded-xl" : "bg-white/40 w-2.5"
+            }`}
             onClick={() => goTo(i)}
             aria-label={`Slide ${i + 1}`}
           />
