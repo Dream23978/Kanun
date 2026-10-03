@@ -6,6 +6,14 @@ import MakamAktivitasSection from "../../Components/MakamBatuLayang/MakamAktivit
 import MakamEtikaSection from "../../Components/MakamBatuLayang/MakamEtikaSection";
 import Footer from "../../Components/Footer";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Makam Ziarah Batu Layang - Kanun 5.0",
+  description:
+    "Kompleks pemakaman bersejarah Kesultanan Pontianak di Batu Layang—ruang ziarah, arsip silsilah, dan saksi sejarah kota di tepi Sungai Kapuas Besar.",
+};
+
 /* ================================================
    HALAMAN DETAIL DESTINASI:
    Makam Ziarah Batu Layang
