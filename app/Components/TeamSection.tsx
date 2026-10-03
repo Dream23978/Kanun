@@ -9,7 +9,7 @@ import ScrollAnimate from "./ScrollAnimate";
    (ASPPERWI Kalbar & BANSA Foundation)
    ================================================ */
 
-export default function TeamSection() {
+export default function TeamSectio() {
   return (
     <section className="py-16 md:py-24 px-6 md:px-15 bg-brand-forest bg-[url('/images/Background.png')] bg-repeat bg-center batik-pattern text-white" id="kemitraan">
       <div className="max-w-310 mx-auto space-y-10">
