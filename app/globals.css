@@ -10,9 +10,11 @@
   /* --- Brand & Semantic Colors --- */
   --color-brand-forest: #246144;
   --color-brand-forest-hover: #2d7a55;
+  --color-brand-forest-dark: #0F2C20;
   --color-brand-gold: #FFEDBB;
   --color-brand-gold-dark: #DBB06A;
   --color-brand-gold-deeper: #B8863C;
+  --color-brand-gold-accent: #C58B3A;
   --color-brand-terracotta: #A64B2A;
 
   --color-canvas: #FCFAF7;
@@ -21,15 +23,23 @@
   --color-surface: #FFFDF7;
   --color-surface-inverse: #123524;
   --color-surface-deep: #0C2418;
+  --color-surface-forest-dark: #17382B;
+  --color-surface-forest-darker: #12241B;
+  --color-surface-forest-deep: #122700;
 
   --color-txt-primary: #1C1A17;
   --color-txt-secondary: #6B726F;
+  --color-txt-forest-muted: #B8CCC3;
   --color-txt-inverse: #FFFFFF;
 
   --color-border-default: #E8E2DA;
   --color-border-strong: #C9BDA6;
+  --color-border-forest-dark: #1F4231;
 
   --color-icon-secondary: #516057;
+
+  --color-badge-mint: #E3ECE6;
+  --color-badge-mint-txt: #3E5C4E;
 
   /* --- Background & Foreground (Next.js compat) --- */
   --color-background: #FCFAF7;
@@ -44,6 +54,7 @@
   --shadow-card-hover: 0 12px 32px rgba(28, 26, 23, 0.12);
 
   /* --- Custom border-radius tokens --- */
+  --radius-24: 24px;
   --radius-20: 20px;
   --radius-16: 16px;
 
