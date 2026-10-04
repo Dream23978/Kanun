@@ -1,78 +1,155 @@
 "use client";
 
-import ScrollAnimate from "./ScrollAnimate";
-
-/* ================================================
-   FOOTER - Branding, navigasi, sosial media,
-   dan copyright di bagian paling bawah
-   ================================================ */
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "motion/react";
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-deep text-white pt-15 px-6 md:px-15 pb-0" id="footer">
-      {/* Grid utama footer: brand + 2 kolom navigasi */}
-      <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-8 md:gap-15 pb-10 border-b border-white/12">
-        {/* Kolom brand */}
-        <ScrollAnimate direction="up" delay={0}>
-          <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 bg-brand-gold rounded-lg flex items-center justify-center font-sans font-bold text-sm text-txt-primary">
+    <footer className="relative w-full bg-[#0B2317] text-white pt-14 pb-8 border-t border-[#1C4230]/40">
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+        {/* Top Section: Brand & Navigation Columns with Motion */}
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.1 }}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col md:flex-row justify-between items-start gap-10 md:gap-14 pb-12"
+        >
+          {/* Column 1: Brand, Partner & Description */}
+          <div className="max-w-md">
+            <div className="flex items-center gap-3.5 mb-4">
+              {/* Kanun 'K' Badge */}
+              <div className="w-8 h-8 rounded-lg bg-[#FFEFC8] text-[#123524] flex items-center justify-center font-sans font-bold text-sm shadow-sm">
                 K
               </div>
-              <span className="font-serif text-lg font-normal text-white">Kanun 5.0</span>
+              <span className="font-heading font-serif text-lg text-white font-normal">
+                Kanun 5.0
+              </span>
+              <span className="text-white/30 text-lg mx-0.5 font-light">|</span>
+
+              {/* Pertamina Partner Badge */}
+              <div className="bg-white rounded px-2.5 py-1 flex items-center h-8 shadow-xs">
+                <Image
+                  src="/images/pertamina.png"
+                  alt="Pertamina"
+                  width={110}
+                  height={26}
+                  className="h-5 w-auto object-contain"
+                />
+              </div>
             </div>
-            <p className="body-s text-white/65 max-w-xs">
-              Platform panduan wisata terpercaya, merangkum keindahan alam, budaya,
-              kuliner, dan kerajinan khas di Kecamatan Pontianak Utara, Kalimantan
-              Barat.
+
+            <p className="text-xs md:text-sm text-white/70 leading-relaxed font-sans">
+              Platform panduan wisata terpercaya, merangkum keindahan alam, budaya, kuliner, dan kerajinan khas di Kecamatan Pontianak Utara, Kalimantan Barat.
             </p>
           </div>
-        </ScrollAnimate>
 
-        {/* Kolom navigasi */}
-        <ScrollAnimate direction="up" delay={0.1}>
-          <div className="flex flex-col">
-            <h5 className="font-sans text-xs font-bold tracking-wider uppercase text-brand-gold mb-4">Navigasi</h5>
-            <ul className="list-none flex flex-col gap-2.5 m-0 p-0">
-              <li><a href="/" className="body-s text-white/70 no-underline transition-colors duration-200 hover:text-brand-gold">Beranda</a></li>
-              <li><a href="/destinasi" className="body-s text-white/70 no-underline transition-colors duration-200 hover:text-brand-gold">Destinasi</a></li>
-              <li><a href="/oleh-oleh" className="body-s text-white/70 no-underline transition-colors duration-200 hover:text-brand-gold">Oleh-oleh</a></li>
-            </ul>
+          {/* Right Columns: Navigasi & Panduan */}
+          <div className="flex gap-14 sm:gap-20 md:gap-28">
+            {/* Column 2: NAVIGASI */}
+            <div>
+              <h4 className="text-xs font-bold uppercase tracking-[0.18em] text-[#D19B4C] mb-4">
+                NAVIGASI
+              </h4>
+              <ul className="space-y-2.5 text-xs md:text-sm text-white/80 font-sans">
+                <li>
+                  <Link href="/" className="hover:text-white transition-colors">
+                    Beranda
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/destinasi" className="hover:text-white transition-colors">
+                    Destinasi
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/oleh-oleh" className="hover:text-white transition-colors">
+                    Oleh-oleh
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 3: PANDUAN */}
+            <div>
+              <h4 className="text-xs font-bold uppercase tracking-[0.18em] text-[#D19B4C] mb-4">
+                PANDUAN
+              </h4>
+              <ul className="space-y-2.5 text-xs md:text-sm text-white/80 font-sans">
+                <li>
+                  <Link href="/panduan/rute-satu-hari" className="hover:text-white transition-colors">
+                    Rute Satu Hari
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/panduan/tips-perjalanan" className="hover:text-white transition-colors">
+                    Tips Perjalanan
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/panduan/kontak-penting" className="hover:text-white transition-colors">
+                    Kontak Penting
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
-        </ScrollAnimate>
+        </motion.div>
 
-        {/* Kolom panduan */}
-        <ScrollAnimate direction="up" delay={0.2}>
-          <div className="flex flex-col">
-            <h5 className="font-sans text-xs font-bold tracking-wider uppercase text-brand-gold mb-4">Panduan</h5>
-            <ul className="list-none flex flex-col gap-2.5 m-0 p-0">
-              <li><a href="/rute" className="body-s text-white/70 no-underline transition-colors duration-200 hover:text-brand-gold">Rute Satu Hari</a></li>
-              <li><a href="/tips" className="body-s text-white/70 no-underline transition-colors duration-200 hover:text-brand-gold">Tips Perjalanan</a></li>
-              <li><a href="/kontak" className="body-s text-white/70 no-underline transition-colors duration-200 hover:text-brand-gold">Kontak Penting</a></li>
-            </ul>
-          </div>
-        </ScrollAnimate>
-      </div>
+        {/* Divider Line */}
+        <div className="border-t border-[#1C4230] pt-6" />
 
-      {/* Baris bawah: copyright, sosmed, lokasi */}
-      <ScrollAnimate direction="fade" delay={0.3}>
-        <div className="flex items-center justify-between py-6">
-          <p className="font-sans text-xs text-white/50">
+        {/* Bottom Bar: Copyright, Social Badges, Slogan with Motion */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.1 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs"
+        >
+          {/* Copyright */}
+          <p className="text-white/60 text-xs text-center md:text-left">
             © 2026 Kanun 5.0 Pontianak Utara. Hak Cipta Dilindungi.
           </p>
 
-          {/* Ikon sosial media */}
-          <div className="flex gap-3">
-            <a href="#" className="w-9 h-9 rounded-full bg-brand-gold flex items-center justify-center font-sans text-xs font-bold text-txt-primary no-underline transition-all duration-250 hover:bg-brand-gold-dark hover:scale-110" aria-label="Instagram">ig</a>
-            <a href="#" className="w-9 h-9 rounded-full bg-brand-gold flex items-center justify-center font-sans text-xs font-bold text-txt-primary no-underline transition-all duration-250 hover:bg-brand-gold-dark hover:scale-110" aria-label="Facebook">fb</a>
-            <a href="#" className="w-9 h-9 rounded-full bg-brand-gold flex items-center justify-center font-sans text-xs font-bold text-txt-primary no-underline transition-all duration-250 hover:bg-brand-gold-dark hover:scale-110" aria-label="YouTube">yt</a>
+          {/* Social Badges (ig, fb, yt) */}
+          <div className="flex items-center gap-3">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram Kanun"
+              className="w-7 h-7 rounded-full bg-[#FFEFC8] text-[#123524] flex items-center justify-center font-bold text-xs hover:scale-110 transition-transform shadow-xs"
+            >
+              ig
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook Kanun"
+              className="w-7 h-7 rounded-full bg-[#FFEFC8] text-[#123524] flex items-center justify-center font-bold text-xs hover:scale-110 transition-transform shadow-xs"
+            >
+              fb
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube Kanun"
+              className="w-7 h-7 rounded-full bg-[#FFEFC8] text-[#123524] flex items-center justify-center font-bold text-xs hover:scale-110 transition-transform shadow-xs"
+            >
+              yt
+            </a>
           </div>
 
-          <p className="font-sans text-xs text-white/50 italic">
+          {/* Regional Slogan */}
+          <p className="text-white/60 text-xs italic text-center md:text-right">
             Pesona Khatulistiwa, Kalimantan Barat
           </p>
-        </div>
-      </ScrollAnimate>
+        </motion.div>
+      </div>
     </footer>
   );
 }
