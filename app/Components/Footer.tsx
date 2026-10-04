@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer className="bg-surface-deep text-white pt-15 px-6 md:px-15 pb-0" id="footer">
       {/* Grid utama footer: brand + 2 kolom navigasi */}
-      <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-8 md:gap-15 pb-10 border-b border-white/[0.12]">
+      <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-8 md:gap-15 pb-10 border-b border-white/12">
         {/* Kolom brand */}
         <ScrollAnimate direction="up" delay={0}>
           <div className="flex flex-col gap-3">
@@ -20,12 +20,6 @@ export default function Footer() {
                 K
               </div>
               <span className="font-serif text-lg font-normal text-white">Kanun 5.0</span>
-              <span className="text-[#FFF9E8] mx-2">|</span>
-              <img
-                src="/images/Logo pertamina.png"
-                alt="Logo Pertamina"
-                className="h-16 w-auto object-contain"
-              />
             </div>
             <p className="body-s text-white/65 max-w-xs">
               Platform panduan wisata terpercaya, merangkum keindahan alam, budaya,

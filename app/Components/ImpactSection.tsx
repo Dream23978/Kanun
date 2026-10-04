@@ -34,11 +34,11 @@ export default function ImpactSection() {
 
           {/* Konten teks */}
           <div className="flex flex-col">
-            <h3 className="font-serif text-xl leading-7.5 font-normal text-[#18522C] mb-3 max-w-lg">
+            <h3 className="font-serif text-xl leading-7.5 font-normal text-brand-forest mb-3 max-w-lg">
               Membangun ekosistem pariwisata berkelanjutan bersama masyarakat
               Pontianak Utara.
             </h3>
-            <p className="body-m text-[#18522C] max-w-lg">
+            <p className="body-m text-brand-forest max-w-lg">
               Melalui program CSR Pertamina, Kanun 5.0 memperkuat kapasitas
               pengrajin tenun, meningkatkan kualitas destinasi ikonik, dan
               mengembangkan rute perjalanan yang lebih inklusif bagi wisatawan dan
