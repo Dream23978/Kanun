@@ -64,7 +64,7 @@ export default function KampungTenunHeroSection() {
                 08.00 - 17.00 WIB
               </p>
               <p className="text-[10px] md:text-xs text-white/60 mt-0.5">
-                Buka setiap hari
+                Buka setiap hari / Senin - Minggu
               </p>
             </div>
 
@@ -74,7 +74,7 @@ export default function KampungTenunHeroSection() {
                 Gratis Masuk
               </p>
               <p className="text-[10px] md:text-xs text-white/60 mt-0.5">
-                Akses publik Kampung Tenun terbuka gratis
+                Akses publik kampung terbuka
               </p>
             </div>
           </div>
