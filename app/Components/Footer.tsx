@@ -6,7 +6,6 @@ import { motion } from "motion/react";
 
 export default function Footer() {
   return (
-<<<<<<< HEAD
     <footer className="relative w-full bg-[#0C2418] text-white pt-11 pb-7 border-t border-[#1C3E2B]/50">
       <div className="max-w-[1140px] mx-auto px-6 md:px-10 lg:px-12">
         {/* Top Section: 3-Column Layout (Area Kiri, Area Tengah, Area Kanan) */}
@@ -37,38 +36,6 @@ export default function Footer() {
                   width={85}
                   height={20}
                   className="h-4.5 w-auto object-contain"
-=======
-    <footer className="relative w-full bg-[#0B2317] text-white pt-14 pb-8 border-t border-[#1C4230]/40">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-        {/* Top Section: Brand & Navigation Columns with Motion */}
-        <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.1 }}
-          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col md:flex-row justify-between items-start gap-10 md:gap-14 pb-12"
-        >
-          {/* Column 1: Brand, Partner & Description */}
-          <div className="max-w-md">
-            <div className="flex items-center gap-3.5 mb-4">
-              {/* Kanun 'K' Badge */}
-              <div className="w-8 h-8 rounded-lg bg-[#FFEFC8] text-[#123524] flex items-center justify-center font-sans font-bold text-sm shadow-sm">
-                K
-              </div>
-              <span className="font-heading font-serif text-lg text-white font-normal">
-                Kanun 5.0
-              </span>
-              <span className="text-white/30 text-lg mx-0.5 font-light">|</span>
-
-              {/* Pertamina Partner Badge */}
-              <div className="bg-white rounded px-2.5 py-1 flex items-center h-8 shadow-xs">
-                <Image
-                  src="/images/pertamina.png"
-                  alt="Pertamina"
-                  width={110}
-                  height={26}
-                  className="h-5 w-auto object-contain"
->>>>>>> kampung-tenun-fix
                 />
               </div>
             </div>
