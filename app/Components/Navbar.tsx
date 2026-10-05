@@ -219,20 +219,13 @@ export default function Navbar() {
                       {destinationItems.map((item) => {
                         const isKampungTenunPage =
                           pathname === "/" ||
-<<<<<<< HEAD
-=======
                           pathname === "/destinasi/kampung-tenun" ||
->>>>>>> kampung-tenun-fix
                           pathname === "/destinasi/kampung-tenun-khatulistiwa";
                         const isKampungTenunItem =
                           item.name === "Kampung Tenun" || item.href.includes("kampung-tenun");
                         const isSubActive =
-<<<<<<< HEAD
                           item.href !== "#" &&
                           (pathname === item.href || (isKampungTenunItem && isKampungTenunPage));
-=======
-                          pathname === item.href || (isKampungTenunItem && isKampungTenunPage);
->>>>>>> kampung-tenun-fix
 
                         return (
                           <Link
@@ -240,13 +233,10 @@ export default function Navbar() {
                             href={item.href}
                             onClick={(e) => {
                               setIsOpen(false);
-<<<<<<< HEAD
                               if (item.href === "#") {
                                 e.preventDefault();
                                 return;
                               }
-=======
->>>>>>> kampung-tenun-fix
                               if (pathname === item.href || (isKampungTenunItem && isKampungTenunPage)) {
                                 e.preventDefault();
                                 window.scrollTo({ top: 0, behavior: "smooth" });
@@ -363,20 +353,13 @@ export default function Navbar() {
               {destinationItems.map((item) => {
                 const isKampungTenunPage =
                   pathname === "/" ||
-<<<<<<< HEAD
-=======
                   pathname === "/destinasi/kampung-tenun" ||
->>>>>>> kampung-tenun-fix
                   pathname === "/destinasi/kampung-tenun-khatulistiwa";
                 const isKampungTenunItem =
                   item.name === "Kampung Tenun" || item.href.includes("kampung-tenun");
                 const isSubActive =
-<<<<<<< HEAD
                   item.href !== "#" &&
                   (pathname === item.href || (isKampungTenunItem && isKampungTenunPage));
-=======
-                  pathname === item.href || (isKampungTenunItem && isKampungTenunPage);
->>>>>>> kampung-tenun-fix
 
                 return (
                   <Link
@@ -384,13 +367,10 @@ export default function Navbar() {
                     href={item.href}
                     onClick={(e) => {
                       setIsMobileMenuOpen(false);
-<<<<<<< HEAD
                       if (item.href === "#") {
                         e.preventDefault();
                         return;
                       }
-=======
->>>>>>> kampung-tenun-fix
                       if (pathname === item.href || (isKampungTenunItem && isKampungTenunPage)) {
                         e.preventDefault();
                         window.scrollTo({ top: 0, behavior: "smooth" });
