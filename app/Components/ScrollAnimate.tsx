@@ -3,54 +3,45 @@
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
 
-/* ================================================
-   SCROLL ANIMATE - Wrapper component untuk
-   animasi on-scroll menggunakan Motion library.
-   
-   Directions:
-   - "up"    → muncul dari bawah ke atas (default)
-   - "left"  → muncul dari kiri ke kanan
-   - "right" → muncul dari kanan ke kiri
-   - "fade"  → fade-in saja tanpa translate
-   ================================================ */
-
-type Direction = "up" | "left" | "right" | "fade";
-
 interface ScrollAnimateProps {
   children: ReactNode;
-  direction?: Direction;
-  delay?: number;
+  direction?: "up" | "down" | "left" | "right";
   duration?: number;
+  delay?: number;
   className?: string;
-  once?: boolean;
 }
-
-const directionOffsets: Record<Direction, { x: number; y: number }> = {
-  up: { x: 0, y: 48 },
-  left: { x: -60, y: 0 },
-  right: { x: 60, y: 0 },
-  fade: { x: 0, y: 0 },
-};
 
 export default function ScrollAnimate({
   children,
   direction = "up",
-  delay = 0,
   duration = 0.6,
+  delay = 0,
   className = "",
-  once = false,
 }: ScrollAnimateProps) {
-  const offset = directionOffsets[direction];
+  const getInitialPosition = () => {
+    switch (direction) {
+      case "up":
+        return { y: 20, x: 0 };
+      case "down":
+        return { y: -20, x: 0 };
+      case "left":
+        return { x: 20, y: 0 };
+      case "right":
+        return { x: -20, y: 0 };
+      default:
+        return { y: 20, x: 0 };
+    }
+  };
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: offset.x, y: offset.y }}
+      initial={{ opacity: 0, ...getInitialPosition() }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once, margin: "-80px" }}
+      viewport={{ once: true, amount: 0.05 }}
       transition={{
         duration,
         delay,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: [0.16, 1, 0.3, 1],
       }}
       className={className}
     >

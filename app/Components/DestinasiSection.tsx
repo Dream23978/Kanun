@@ -22,13 +22,13 @@ const destinations = [
     image: "/images/Kampung Tenun.png",
     title: "Kampung Wisata Tenun (Kanun)",
     desc: "Kerajinan tenun tradisional motif corak insang khas melayu.",
-    link: "#",
+    link: "/destinasi/kampung-tenun-khatulistiwa",
   },
   {
     image: "/images/makam.png",
     title: "Makam Kesultanan Batu Layang",
     desc: "Situs pemakaman bersejarah kesultanan Pontianak di tepian sungai.",
-    link: "/destinasi/makam-ziarah-batu-layang",
+    link: "#",
   },
   {
     image: "/images/bukit.png",
