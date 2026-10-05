@@ -28,13 +28,13 @@ const destinations = [
     image: "/images/makam.png",
     title: "Makam Kesultanan Batu Layang",
     desc: "Situs pemakaman bersejarah kesultanan Pontianak di tepian sungai.",
-    link: "#",
+    link: "/destinasi/makam-ziarah-batu-layang",
   },
   {
     image: "/images/bukit.png",
     title: "Bukit Rel",
     desc: "Sisa sejarah jalur lori rute kuno dengan panorama alam hijau.",
-    link: "#",
+    link: "/destinasi/bukit-rel",
   },
 ];
 

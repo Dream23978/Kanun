@@ -35,7 +35,7 @@ const destinationItems = [
   {
     name: "Makam Batu Layang",
     desc: "Situs bersejarah Kesultanan",
-    href: "#",
+    href: "/destinasi/makam-ziarah-batu-layang",
     icon: (
       <svg className="w-4 h-4 text-brand-forest" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         {/* Arch tombstone / Batu Nisan */}
@@ -48,7 +48,7 @@ const destinationItems = [
   {
     name: "Bukit Rel",
     desc: "Wisata alam & sejarah lori",
-    href: "#",
+    href: "/destinasi/bukit-rel",
     icon: (
       <svg className="w-4 h-4 text-brand-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 20l7-10 4 5 7-9" />
@@ -218,7 +218,6 @@ export default function Navbar() {
 
                       {destinationItems.map((item) => {
                         const isKampungTenunPage =
-                          pathname === "/" ||
                           pathname === "/destinasi/kampung-tenun" ||
                           pathname === "/destinasi/kampung-tenun-khatulistiwa";
                         const isKampungTenunItem =
@@ -352,7 +351,6 @@ export default function Navbar() {
             <div className="pl-2 flex flex-col gap-2">
               {destinationItems.map((item) => {
                 const isKampungTenunPage =
-                  pathname === "/" ||
                   pathname === "/destinasi/kampung-tenun" ||
                   pathname === "/destinasi/kampung-tenun-khatulistiwa";
                 const isKampungTenunItem =
