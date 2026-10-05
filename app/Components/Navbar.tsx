@@ -25,7 +25,7 @@ const destinationItems = [
   {
     name: "Kampung Tenun",
     desc: "Kerajinan tenun corak insang",
-    href: "/destinasi/kampung-tenun-khatulistiwa",
+    href: "/destinasi/kanun",
     icon: (
       <svg className="w-4 h-4 text-brand-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
@@ -35,7 +35,7 @@ const destinationItems = [
   {
     name: "Makam Batu Layang",
     desc: "Situs bersejarah Kesultanan",
-    href: "/destinasi/makam-ziarah-batu-layang",
+    href: "/destinasi/makam",
     icon: (
       <svg className="w-4 h-4 text-brand-forest" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         {/* Arch tombstone / Batu Nisan */}
@@ -218,10 +218,11 @@ export default function Navbar() {
 
                       {destinationItems.map((item) => {
                         const isKampungTenunPage =
+                          pathname === "/destinasi/kanun" ||
                           pathname === "/destinasi/kampung-tenun" ||
                           pathname === "/destinasi/kampung-tenun-khatulistiwa";
                         const isKampungTenunItem =
-                          item.name === "Kampung Tenun" || item.href.includes("kampung-tenun");
+                          item.name === "Kampung Tenun" || item.href.includes("kanun") || item.href.includes("kampung-tenun");
                         const isSubActive =
                           item.href !== "#" &&
                           (pathname === item.href || (isKampungTenunItem && isKampungTenunPage));
@@ -351,10 +352,11 @@ export default function Navbar() {
             <div className="pl-2 flex flex-col gap-2">
               {destinationItems.map((item) => {
                 const isKampungTenunPage =
+                  pathname === "/destinasi/kanun" ||
                   pathname === "/destinasi/kampung-tenun" ||
                   pathname === "/destinasi/kampung-tenun-khatulistiwa";
                 const isKampungTenunItem =
-                  item.name === "Kampung Tenun" || item.href.includes("kampung-tenun");
+                  item.name === "Kampung Tenun" || item.href.includes("kanun") || item.href.includes("kampung-tenun");
                 const isSubActive =
                   item.href !== "#" &&
                   (pathname === item.href || (isKampungTenunItem && isKampungTenunPage));

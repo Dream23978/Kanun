@@ -57,7 +57,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/destinasi/kampung-tenun-khatulistiwa" className="hover:text-white transition-colors">
+                <Link href="/destinasi/kanun" className="hover:text-white transition-colors">
                   Destinasi
                 </Link>
               </li>
