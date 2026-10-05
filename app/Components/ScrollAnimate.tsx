@@ -37,7 +37,7 @@ export default function ScrollAnimate({
     <motion.div
       initial={{ opacity: 0, ...getInitialPosition() }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, amount: 0.05 }}
+      viewport={{ once: false, amount: 0.05 }}
       transition={{
         duration,
         delay,
