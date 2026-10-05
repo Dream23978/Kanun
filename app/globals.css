@@ -1,51 +1,284 @@
 @import "tailwindcss";
 
-:root {
-  --brand-forest: #123524;
-  --brand-green: #1F5A3C;
-  --brand-gold: #D19B4C;
-  --brand-terracotta: #A64B2A;
-  --background-canvas: #FFEDBB;
-  --background-subtle: #246144;
-  --surface-default: #FFFDF7;
-  --surface-inverse: #123524;
-  --text-primary: #1C1A17;
-  --text-secondary: #6B726F;
-  --text-inverse: #FFFFFF;
-  --border-default: #E8E2DA;
-  --border-strong: #C9BDA6;
-  --icon-secondary: #516057;
-  --white: #FFFFFF;
-}
-
-@theme {
-  --color-brand-forest: #123524;
+@theme inline {
+  /* --- Brand & Semantic Colors --- */
+  --color-brand-forest: #246144;
+  --color-brand-forest-hover: #2d7a55;
+  --color-brand-forest-dark: #0F2C20;
   --color-brand-green: #1F5A3C;
-  --color-brand-gold: #D19B4C;
+  --color-brand-gold: #FFEDBB;
+  --color-brand-gold-dark: #DBB06A;
+  --color-brand-gold-deeper: #B8863C;
+  --color-brand-gold-accent: #C58B3A;
   --color-brand-terracotta: #A64B2A;
-  --color-canvas: #FFFDF7;
-  --color-background-canvas: #FFEDBB;
-  --color-background-subtle: #246144;
+
+  /* --- Background & Surface --- */
+  --color-canvas: #FCFAF7;
+  --color-subtle: #F4EFEA;
+  --color-background-canvas: #FCFAF7;
+  --color-background-subtle: #F4EFEA;
+
   --color-surface: #FFFDF7;
   --color-surface-default: #FFFDF7;
   --color-surface-inverse: #123524;
+  --color-surface-deep: #0C2418;
+  --color-surface-forest-dark: #17382B;
+  --color-surface-forest-darker: #12241B;
+  --color-surface-forest-deep: #122700;
+
+  /* --- Text --- */
   --color-text-primary: #1C1A17;
   --color-text-secondary: #6B726F;
   --color-txt-primary: #1C1A17;
   --color-txt-secondary: #6B726F;
+  --color-txt-forest-muted: #B8CCC3;
   --color-txt-inverse: #FFFFFF;
+
+  /* --- Border --- */
   --color-border-default: #E8E2DA;
   --color-border-strong: #C9BDA6;
+  --color-border-forest-dark: #1F4231;
+
+  /* --- Icon --- */
   --color-icon-secondary: #516057;
 
+  /* --- Badges --- */
+  --color-badge-mint: #E3ECE6;
+  --color-badge-mint-txt: #3E5C4E;
+
+  /* --- Utility & Next.js compat --- */
+  --color-white: #FFFFFF;
+  --color-background: #FCFAF7;
+  --color-foreground: #1C1A17;
+
+  /* --- Spacing & Z-index --- */
   --spacing-15: 3.75rem;
   --z-100: 100;
 
-  --font-serif: var(--font-dm-serif), Georgia, serif;
-  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  /* --- Font families --- */
+  --font-serif: var(--font-dm-serif), "DM Serif Text", Georgia, serif;
+  --font-sans: var(--font-inter), "Inter", Arial, sans-serif;
+
+  /* --- Custom Shadows / Elevation --- */
+  --shadow-card: 0 4px 20px rgba(28, 26, 23, 0.06);
+  --shadow-card-hover: 0 12px 32px rgba(28, 26, 23, 0.12);
+
+  /* --- Custom border-radius tokens --- */
+  --radius-24: 24px;
+  --radius-20: 20px;
+  --radius-16: 16px;
+
+  /* --- Animations --- */
+  --animate-fade-in-up: fade-in-up 0.6s ease forwards;
 }
 
-/* Woven Corak Insang Texture using bf.png asset */
+/* --- Keyframe for fade-in-up --- */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================
+   Base / Reset
+   ======================== */
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-canvas text-txt-primary font-sans text-sm leading-[22px] overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-dm-serif), Georgia, serif;
+  }
+}
+
+/* ========================
+   Reusable Utilities via @utility
+   ======================== */
+
+/* --- Typography Presets --- */
+@utility display-xl {
+  font-family: var(--font-serif);
+  font-size: 42px;
+  line-height: 50px;
+  font-weight: 400;
+}
+
+@utility heading-h1 {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 400;
+}
+
+@utility heading-h2 {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+}
+
+@utility heading-h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+@utility body-l {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+@utility body-m {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+@utility body-s {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+@utility label-m {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* --- Button: Primary (forest green pill) --- */
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-brand-forest);
+  color: var(--color-txt-inverse);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+/* --- Button: Secondary (outlined pill) --- */
+@utility btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-surface);
+  color: var(--color-brand-forest);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 1px solid var(--color-brand-forest);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+/* --- Badge Base & Variants --- */
+@utility badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: fit-content;
+}
+
+@utility badge-sejarah {
+  background-color: var(--color-brand-forest);
+  color: var(--color-txt-inverse);
+}
+
+@utility badge-atraksi {
+  background-color: var(--color-brand-gold);
+  color: var(--color-txt-inverse);
+}
+
+@utility badge-kuliner {
+  background-color: var(--color-brand-terracotta);
+  color: var(--color-txt-inverse);
+}
+
+@utility badge-destinasi {
+  background-color: var(--color-brand-forest);
+  color: var(--color-brand-gold);
+}
+
+/* --- Card Base --- */
+@utility card-ds {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* --- Background Patterns --- */
+@utility batik-pattern {
+  background-color: #1F5A3C;
+  background-image: url("/images/Background.png");
+  background-size: auto;
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+}
+
+@utility diamond-pattern {
+  background-color: var(--color-canvas);
+  background-image: url("/images/Background.png");
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+/* --- Legacy animation class --- */
+@utility animate-in {
+  animation: fade-in-up 0.6s ease forwards;
+}
+
+/* --- Woven Corak Insang Texture using bf.png asset (Kampung Tenun) --- */
 .bg-tenun-green {
   background-color: #1B4E34;
   background-image: url('/images/bf.png');
@@ -64,18 +297,7 @@
   background-blend-mode: multiply;
 }
 
-/* Base resets & typography */
-body {
-  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
-  color: #1C1A17;
-  background-color: #FFFDF7;
-}
-
-h1, h2, h3, h4, .font-heading {
-  font-family: var(--font-dm-serif), Georgia, serif;
-}
-
-/* Card Elevation Token */
+/* --- Elevation Tokens --- */
 .elevation-card {
   box-shadow: 0 4px 20px -2px rgba(18, 53, 36, 0.06), 0 2px 6px -1px rgba(18, 53, 36, 0.04);
 }
