@@ -1,49 +1,59 @@
 @import "tailwindcss";
 
-/* ============================================
-   KANUN 5.0 — Tailwind v4 Design System
-   All tokens are registered via @theme inline
-   so they can be used as tw utilities.
-   ============================================ */
-
 @theme inline {
   /* --- Brand & Semantic Colors --- */
   --color-brand-forest: #246144;
   --color-brand-forest-hover: #2d7a55;
   --color-brand-forest-dark: #0F2C20;
+  --color-brand-green: #1F5A3C;
   --color-brand-gold: #FFEDBB;
   --color-brand-gold-dark: #DBB06A;
   --color-brand-gold-deeper: #B8863C;
   --color-brand-gold-accent: #C58B3A;
   --color-brand-terracotta: #A64B2A;
 
+  /* --- Background & Surface --- */
   --color-canvas: #FCFAF7;
   --color-subtle: #F4EFEA;
+  --color-background-canvas: #FCFAF7;
+  --color-background-subtle: #F4EFEA;
 
   --color-surface: #FFFDF7;
+  --color-surface-default: #FFFDF7;
   --color-surface-inverse: #123524;
   --color-surface-deep: #0C2418;
   --color-surface-forest-dark: #17382B;
   --color-surface-forest-darker: #12241B;
   --color-surface-forest-deep: #122700;
 
+  /* --- Text --- */
+  --color-text-primary: #1C1A17;
+  --color-text-secondary: #6B726F;
   --color-txt-primary: #1C1A17;
   --color-txt-secondary: #6B726F;
   --color-txt-forest-muted: #B8CCC3;
   --color-txt-inverse: #FFFFFF;
 
+  /* --- Border --- */
   --color-border-default: #E8E2DA;
   --color-border-strong: #C9BDA6;
   --color-border-forest-dark: #1F4231;
 
+  /* --- Icon --- */
   --color-icon-secondary: #516057;
 
+  /* --- Badges --- */
   --color-badge-mint: #E3ECE6;
   --color-badge-mint-txt: #3E5C4E;
 
-  /* --- Background & Foreground (Next.js compat) --- */
+  /* --- Utility & Next.js compat --- */
+  --color-white: #FFFFFF;
   --color-background: #FCFAF7;
   --color-foreground: #1C1A17;
+
+  /* --- Spacing & Z-index --- */
+  --spacing-15: 3.75rem;
+  --z-100: 100;
 
   /* --- Font families --- */
   --font-serif: var(--font-dm-serif), "DM Serif Text", Georgia, serif;
@@ -91,11 +101,14 @@
   body {
     @apply bg-canvas text-txt-primary font-sans text-sm leading-[22px] overflow-x-hidden;
   }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-dm-serif), Georgia, serif;
+  }
 }
 
 /* ========================
    Reusable Utilities via @utility
-   (used where Tailwind inline would be too verbose)
    ======================== */
 
 /* --- Typography Presets --- */
@@ -197,7 +210,7 @@
   transition: all 0.25s ease;
 }
 
-/* --- Badge Base --- */
+/* --- Badge Base & Variants --- */
 @utility badge {
   display: inline-flex;
   align-items: center;
@@ -263,4 +276,37 @@
 /* --- Legacy animation class --- */
 @utility animate-in {
   animation: fade-in-up 0.6s ease forwards;
+}
+
+/* --- Woven Corak Insang Texture using bf.png asset (Kampung Tenun) --- */
+.bg-tenun-green {
+  background-color: #1B4E34;
+  background-image: url('/images/bf.png');
+  background-repeat: repeat;
+  background-position: center top;
+  background-size: 672px auto;
+  background-blend-mode: multiply;
+}
+
+.bg-tenun-yellow {
+  background-color: #FFF6DB;
+  background-image: url('/images/bf.png');
+  background-repeat: repeat;
+  background-position: center top;
+  background-size: 672px auto;
+  background-blend-mode: multiply;
+}
+
+/* --- Elevation Tokens --- */
+.elevation-card {
+  box-shadow: 0 4px 20px -2px rgba(18, 53, 36, 0.06), 0 2px 6px -1px rgba(18, 53, 36, 0.04);
+}
+
+.elevation-card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.elevation-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -4px rgba(18, 53, 36, 0.12), 0 4px 10px -2px rgba(18, 53, 36, 0.06);
 }
