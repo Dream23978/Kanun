@@ -42,7 +42,7 @@ export default function TuguKhatulistiwaPage() {
         {/* 5. Atraksi Wisata & Akses/Lokasi */}
         <TuguAtraksiSection />
 
-        {/* 6. Rekomendasi Oleh-Oleh (Paling Akhir sebelum Footer) */}
+        {/* 6. Rekomendasi Oleh-Oleh */}
         <TuguOlehOlehSection />
       </main>
 
