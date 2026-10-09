@@ -61,7 +61,7 @@ const panduanItems = [
   {
     name: "Panduan Tugu Khatulistiwa",
     desc: "Titik kulminasi, sertifikat & akses",
-    href: "/destinasi/tugu#atraksi",
+    href: "/panduan/tugu",
     icon: (
       <svg className="w-4 h-4 text-brand-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <circle cx="12" cy="12" r="9" strokeWidth="1.5" />
