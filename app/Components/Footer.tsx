@@ -27,17 +27,6 @@ export default function Footer() {
                 Kanun 5.0
               </span>
               <span className="text-white/30 text-lg mx-1 font-light">|</span>
-
-              {/* Pertamina Partner Badge */}
-              <div className="bg-white rounded px-2.5 py-1 flex items-center justify-center h-8 shadow-xs">
-                <Image
-                  src="/images/pertamina.png"
-                  alt="Pertamina"
-                  width={85}
-                  height={20}
-                  className="h-4.5 w-auto object-contain"
-                />
-              </div>
             </div>
 
             <p className="text-xs text-white/70 leading-[1.65] font-sans max-w-[340px]">

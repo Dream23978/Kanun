@@ -5,18 +5,16 @@ import Link from "next/link";
 import ScrollAnimate from "./ScrollAnimate";
 
 /* ================================================
-   DESTINASI SECTION - Grid 4 kolom kartu destinasi
-   dengan gambar, deskripsi, dan link detail
+   DESTINASI SECTION - Grid 4 kolom kartu destinasi (Responsive)
    ================================================ */
 
-// Data destinasi unggulan
 const destinations = [
   {
     image: "/images/CardImage.png",
     category: "DESTINASI",
     title: "Tugu Khatulistiwa",
     desc: "Ikon bumi belahan utara dan selatan tepat di garis ekuator.",
-    link: "#",
+    link: "/destinasi/tugu",
   },
   {
     image: "/images/Kampung Tenun.png",
@@ -40,14 +38,14 @@ const destinations = [
 
 export default function DestinasiSection() {
   return (
-    <section className="py-20 px-6 md:px-15 bg-brand-gold diamond-pattern" id="destinasi">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-15 bg-brand-gold diamond-pattern" id="destinasi">
       {/* Header: judul + deskripsi */}
-      <div className="flex flex-col md:flex-row justify-between items-start mb-10 gap-10">
+      <div className="flex flex-col sm:flex-row justify-between items-start mb-8 sm:mb-10 gap-4 sm:gap-10">
         <ScrollAnimate direction="up">
-          <h2 className="font-serif text-4xl font-normal leading-11 text-brand-forest">Destinasi Pilihan Terbaik</h2>
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal leading-tight text-brand-forest">Destinasi Pilihan Terbaik</h2>
         </ScrollAnimate>
         <ScrollAnimate direction="right" delay={0.15}>
-          <p className="body-m text-txt-primary max-w-sm font-bold">
+          <p className="font-sans text-xs sm:text-sm md:text-base text-txt-primary max-w-sm font-bold leading-relaxed">
             Empat pilar pesona wisata Pontianak Utara yang merangkum sejarah dunia,
             kearifan lokal kerajinan tangan, hingga petualangan alam liar.
           </p>
@@ -55,7 +53,7 @@ export default function DestinasiSection() {
       </div>
 
       {/* Grid kartu destinasi */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {destinations.map((dest, i) => (
           <ScrollAnimate key={i} direction="up" delay={i * 0.12}>
             <div className="bg-surface rounded-20 overflow-hidden border border-border-default shadow-card transition-all duration-300 flex flex-col hover:-translate-y-1 hover:shadow-card-hover group h-full">
@@ -70,10 +68,10 @@ export default function DestinasiSection() {
                 />
               </div>
               {/* Info destinasi */}
-              <div className="p-5 flex flex-col grow">
-                <h3 className="heading-h3 text-txt-primary mb-2">{dest.title}</h3>
-                <p className="body-s text-txt-secondary mb-4 grow">{dest.desc}</p>
-                <Link href={dest.link} className="body-s text-brand-forest no-underline font-semibold inline-flex items-center gap-1.5 transition-all duration-250 hover:gap-2.5 hover:text-brand-gold-deeper">Lihat Detail →</Link>
+              <div className="p-4 sm:p-5 flex flex-col grow">
+                <h3 className="font-serif text-lg sm:text-xl font-normal text-txt-primary mb-2">{dest.title}</h3>
+                <p className="font-sans text-xs sm:text-sm text-txt-secondary mb-4 grow leading-relaxed">{dest.desc}</p>
+                <Link href={dest.link} className="font-sans text-xs sm:text-sm text-brand-forest no-underline font-semibold inline-flex items-center gap-1.5 transition-all duration-250 hover:gap-2.5 hover:text-brand-gold-deeper">Lihat Detail →</Link>
               </div>
             </div>
           </ScrollAnimate>

@@ -14,7 +14,7 @@ const destinationItems = [
   {
     name: "Tugu-Khatulistiwa",
     desc: "Ikon ekuator belahan bumi",
-    href: "#",
+    href: "/destinasi/tugu",
     icon: (
       <svg className="w-4 h-4 text-brand-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <circle cx="12" cy="12" r="9" strokeWidth="1.5" />
@@ -61,7 +61,7 @@ const mainLinks = [
   { id: "beranda", label: "Beranda", href: "/", isExact: true },
   { id: "destinasi", label: "Destinasi", href: "/destinasi", isDropdown: true },
   { id: "panduan", label: "Panduan", href: "/panduan" },
-  { id: "artikel", label: "Artikel", href: "/artikel" },
+  { id: "tentang kami", label: "Tentang Kami", href: "/tentang-kami" },
 ];
 
 export default function Navbar() {
