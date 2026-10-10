@@ -72,7 +72,7 @@ const panduanItems = [
   {
     name: "Panduan Kampung Tenun",
     desc: "Workshop menenun & homestay warga",
-    href: "/destinasi/kanun#atraksi",
+    href: "/panduan/tenun",
     icon: (
       <svg className="w-4 h-4 text-brand-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
